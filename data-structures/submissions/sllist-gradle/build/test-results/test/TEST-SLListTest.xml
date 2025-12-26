@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SLListTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-10-11T14:47:12" hostname="MIK-LAPTOP" time="0.019">
+  <properties/>
+  <testcase name="getTest()" classname="SLListTest" time="0.017"/>
+  <testcase name="getFirstThrowsIndexOutOfBoundsException()" classname="SLListTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

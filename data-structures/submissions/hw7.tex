@@ -1,0 +1,63 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{6}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+21 November 2024 \\
+\end{center}
+
+\question{1}{Task 1: Mathematical Truth}
+"Every binary tree on $n$ nodes where each has either zero or two children has precisely $\frac{n+1}{2}$ leaves."
+
+\part{1}{ Base case}
+\begin{align}
+P(1) = \frac{1+1}{2} = 1
+\end{align}
+A binary tree with only one node, which therefore has no subtrees, has one leaf, which is also the root. Therefore, this base case holds true.
+
+\part{2}{ Inductive step}
+
+First and foremost, if a tree on $k$ nodes has zero children, then we can deduce that it will have $\frac{k+1}{2}$ leaves since we don't have to worry about children.
+
+Now suppose we have two children. Suppose a $k$ node binary tree has $\frac{k+1}{2}$ leaves (per IH). Let's assume that this $k$-node tree is part of a larger tree, with $n$ nodes, such that the total amount of nodes in this tree will be $1 + k + (n-k-1) = n$ nodes.
+\begin{itemize}
+	\item Per strong induction, we know that since $k < n$ and $(n-k-1) < n$ it means that $k \to \frac{k+1}{2}$ leaves and $(n-k-1) \to \frac{n-k}{2}$ leaves.
+	\item If we sum these together, we can get the total number of leaves:
+\end{itemize}
+\begin{align}
+Total = \frac{k+1}{2} + \frac{n-k}{2} = \frac{k+1+n-k}{2} == \frac{n+1}{2}
+\end{align}
+This aligns with our initial statement, therefore we've proven it.
+\end{document}

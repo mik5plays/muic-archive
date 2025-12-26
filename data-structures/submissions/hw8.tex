@@ -1,0 +1,164 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{8}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+6 December 2024 \\
+\end{center}
+
+\lstset{
+    language=Java,                 
+    basicstyle=\texttt\footnotesize, 
+    keywordstyle=\color{magenta}\bfseries, 
+    commentstyle=\color{gray},     
+    stringstyle=\color{green},                  
+    tabsize=4,                     
+    showspaces=false,              
+    showstringspaces=false,        
+    breaklines=true,               
+    breakatwhitespace=true,        
+}
+
+\question{1}{Breadth-First Search Running Time}
+
+I will annotate this BFS code to determine its runtime:
+\begin{lstlisting}
+
+// total for nbrsExcluding - see below
+Set<Integer> nbrsExcluding(UndirectedGraph<Integer> G, Set<Integer> vtxes, Set<Integer> excl) {
+	Set<Integer> union = new TreeSet<>(); // not HashMap
+	for (Integer src : vtxes) { // V
+		for (Integer dst : G.adj(src)) // d (average degree of a vertex)
+			if (!excl.contains(dst)) { union.add(dst); } // O(logS) and O(logE) for exclusion set
+	}
+	return union;
+}
+
+Set<Integer> bfs(UndirectedGraph<Integer> G, int s) {
+	// let V -> visited
+	// let F -> frontier
+	Set<Integer> frontier = new TreeSet<>(Arrays.asList(s)); // O(logF)
+	Set<Integer> visited = new TreeSet<>(Arrays.asList(s)); // O(logV)
+	while (!frontier.isEmpty()) {
+		frontier = nbrsExcluding(G, frontier, visited); // O(F*d*logV)
+		visited.addAll(frontier); // the i-th position is what's reached at i hops ---- O(FlogV)
+	}
+	return visited; // O(1)
+}
+\end{lstlisting}
+
+Here are some additional notes for context (based on my own understanding of things):
+\begin{enumerate}
+	\item I'd assume that the size of the graph $G$ should be the same as the number of vertices. Thus, if the adjacency table stores non-duplicate edges meaning that say, the list of adjacent vertexes to vertex A is vertex B, but vertex A is not in the list of adjacent vertexes for vertex B.
+	\item If all vertices in the tree are connected, then $m \ge n$ in theory.
+	\item We use the textbook presumption that $n$ = number of vertices and $m$ = number of edges
+\end{enumerate}
+
+For $nbrsExcluding$, here are some considerations for the total runtime:
+\begin{itemize}
+	\item $V$ is the size of the set vtxes
+	\item $d$ is the average size of the degree of each vertex
+	\item $contains$ and $add$ both take logarithmic time, but I'd want to assume that $excl$ would be larger than $union$ so the dominant time is $O(logE)$
+\end{itemize}
+Therefore, the total runtime for nbrsExcluding should be $O(V \cdot d \cdot logE)$
+
+As for $bfs$:
+\begin{itemize}
+	\item Initializing the sets would in theory take logarithmic time, where since $s$ is only one element, we won't need to do any additional multiplication	
+	\item One iteration of the while loop takes $O(FdlogV + FlogV)$ which is $O(d+1 \cdot FlogV)$
+	\item In BFS, every edge is considered only once, so $d$ would in theory approach $m$. 
+	\item Likewise, we must go through every vertex, so $V$ should be of size $n$ by the end.
+	\item Each vertex enters $F$ once. This means that $F$ sums up to $n$ in the end.
+\end{itemize}
+Consider the sum of iterations:
+\begin{align}
+\sum d + 1 \cdot F \cdot logV
+\end{align}
+In theory, the most dominant variant of this would be in the very end of the while-loop, where as said in the previous two bullet points, we'd have the worst case sizes of d, V, and thus F. I do this since the rest of the iteration is irrelevant when it comes to finding the dominant term that ends up being the runtime.
+\begin{align}
+(nm + n) \cdot logn \\
+= (m+n) \cdot logn
+\end{align}
+Thus, we can conclude that the runtime of this TreeMap / TreeSet based BFS is $O((m+n) \cdot logn)$ which is slower than the textbooks' HashSet implementation of BFS but it does make sense since TreeSet operations take $O(logn)$ per operation as opposed to HashSets that, on average, take $O(1)$ per operation.
+
+\question{2}{Random Permutations}
+
+Consider the following code:
+\begin{lstlisting}
+int minSoFar = Integer.MAX_VALUE;
+int numUpdate = 0;
+for (int i=1;i<=n;i++) {
+	if (p(i) < minSoFar) {
+		minSoFar = p(i);
+		numUpdate++;
+	}
+}
+
+\end{lstlisting}
+Given that $p: [n] \to [n]$, one thing to note is that the probability of $p(i)$ being the new minimum depends on all $p(i-1) ... p(2), p(1)$ before it. If $p$ is truly random, then every permutation has an equal chance of being achieved. Because of this, we'd want to assume that the chances of us getting a new minimum each iteration would be $\frac{1}{i}$
+
+We can give an iterator random variable $R_i$ to $numUpdate$ such that:
+\begin{align}
+R_i \to \begin{cases}
+	1 \quad \text{p(i) is less than minSoFar} \\
+	0 \quad \text{otherwise}
+\end{cases}
+\end{align}
+Therefore, per the expected value formula,
+\begin{align}
+\text{E[numUpdate]} = \sum_{i=1}^{n} R_i \cdot P(i)
+\end{align}
+Since numUpdate only updates if we find a new minimum (since if we don't find the minimum, $R_i = 0$), and knowing that the chances of finding said new minimum is $\frac{1}{i}$, we actually find that the formula ends up looking like:
+\begin{align}
+\text{E[numUpdate]} = \sum_{i=1}^{n} \frac{1}{i}
+\end{align}
+This looks a lot like the Harmonic series. Thus, finding the lower and upper bounds of this would look something like (using $x = i$ for simplicity), and also taking stuff from Wikipedia's page on the harmonic series:
+\begin{align}
+\text{Lower bound} \\
+\int_{1}^{n+1} \frac{1}{x} dx \\ 
+= \left[ln(n+1) - ln(1)\right] \\ = ln(n+1) \\
+\text{Upper bound} \\ 
+1 + \int_{1}^{n} \frac{1}{x} dx\\ 
+= 1 + \left[ln(n) - ln(1)\right] = 1 + ln(n)
+\end{align}
+Therefore,
+\begin{align}
+ln(n+1) \le \text{E[numUpdate]} \le 1 + ln(n)
+\end{align}
+\question{3}{HackerRank Problems}
+My username on HackerRank is @theeradon.sar
+\end{document}

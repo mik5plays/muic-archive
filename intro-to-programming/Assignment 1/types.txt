@@ -1,0 +1,45 @@
+# Assignment 1, Task 3
+# Name: Theeradon Sarawek (Mik)
+# Collaborators: -
+# Time Spent: ~10 min
+
+-- Part I -- 
+
+width = 20
+height = 9.0
+
+1. width/3 --> 6.66
+2. width/2.0 --> 10.0
+3. height//3 --> 3.0
+4. height//3.0 --> 3.0
+5. height*width/2 --> 90.0
+6. width/2*height --> 90.0
+7. 3 + 4 * 5 -->  23
+8. 3//4 + 4*5 --> 20
+9. 3/4 + 4 * 5 --> 20.75
+10. 3/4.0 + 4 * 5 20.75
+
+-- Part II - 
+
+1 c = 6
+2 e = 4
+3 d = e ** 2
+4 a = d + e
+5 C = a // 2
+6 a = C + a
+7 b = (a + c + d + e) / 4
+8 e = a + b * C / d % e
+9 c = c + (a - b) * e
+
+-- Part II cont'd --
+
+1. What is the type and the value of a right after line 4?
+20
+2. What is the type and the value of c right after line 5?
+6
+3. What is the type and the value of a right after line 6?
+30
+4. What is the type and the value of e right after line 8?
+30.75
+5. What is the type and the value of c right after line 9?
+498.0

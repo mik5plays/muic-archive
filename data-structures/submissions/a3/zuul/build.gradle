@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+application {
+    mainClass = "Main"
+}
+
+run {
+ standardInput = System.in
+}

@@ -1,0 +1,22 @@
+# Assignment 1, Task 4
+# Name: Theeradon Sarawek (Mik)
+# Collaborators: -
+# Time Spent:
+
+-- Program I --
+print(not x or y)
+
+Possibilities:
+x = True, y = True
+x = False, y = False
+x = False, y = True
+>> as long as it isn't x = True, y = False
+
+-- Program II --
+
+print (x >= 40 and (x%20)//10 == 1)
+>> 50 > 40 
+>> 50%20 = 10
+>> 10//10 = 1
+
+x = 50

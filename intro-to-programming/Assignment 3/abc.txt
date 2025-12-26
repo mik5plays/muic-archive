@@ -1,0 +1,30 @@
+# Assignment 3, Task 4
+# Name: Theeradon Sarawek
+# Collaborators:
+# Time Spent: 10 minutes
+
+1. bdbaac
+b()
+d()
+a()
+c()
+
+2. aacbba
+a()
+c()
+b()
+b()
+a()
+
+3. dbabac
+d()
+a()
+b()
+c()
+
+4. cbaedb
+Impossible.
+
+5. acedba
+e()
+a()

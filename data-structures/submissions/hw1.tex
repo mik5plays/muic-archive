@@ -1,0 +1,85 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{1}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+20 September 2024 \\
+\end{center}
+
+\question{1}{Task 2: Oh My Magical Math (OHMM...)}
+
+\part{1}{ Subtask II}
+
+Consider the first $n$ even numbers (including zero):
+\begin{align}
+0,2,4,6,8,10,...
+\end{align}
+Consider that the common difference is 2, and comparing it with the sequence $2n$, which is \{2,4,6,8,10\},
+We can see that the general pattern is $2n-2$ or $2(n-1)$ for the $n$th term of this sequence.
+The sum of said sequence can be written like the following:
+\begin{align}
+S=0+2+4+6+8+...+2(n-1)
+\end{align}
+Writing the same sequence backwards looks like:
+\begin{align}
+S=2(n-1)+2(n-2)+2(n-3)+...+2+0
+\end{align}
+Adding these two variations of the sums together gives us:
+\begin{align}
+2S=(0+2(n-1))+(2+2(n-2)+(4+2(n-3))+...+(2(n-2)+2)+(2(n-1)+0)
+\end{align}
+This simplifies to:
+\begin{align}
+2S=(2n-2)+(2n-2)+(2n-2)+...+(2n-2)+(2n-2)
+\end{align}
+Considering that there will be $n$ occurences of $2n-2$, so:
+\begin{align}
+2S=n(2n-2)
+\\ \therefore S=\frac{n(2n-2)}{2}
+\\ = \frac{(n)(2)(n-1)}{2}
+\\ = n(n-1)
+\end{align}
+Therefore, the sum of the first $n$ even numbers, starting from 0, is $n(n-1)$.
+\\ To prove that it works, say $n=5$
+The first 5 even numbers would then be 0,2,4,6,8 with the sum of that being 0+2+4+6+8=20
+Putting $n=5$ in said formula would be $5(5-1)=5(4)=20$. 
+
+\part{2}{ Subtask III}
+
+Suppose we want to use the formula $n(n-1)$ instead of our Java function, the function would always
+take the same amount of steps regardless of what $n$ is. This gives us a time complexity of $O(1)$.
+
+\end{document}
+

@@ -1,0 +1,84 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{4}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+26 October 2024 \\
+\end{center}
+
+\lstset{
+    language=Python,                 
+    basicstyle=\texttt\footnotesize, 
+    keywordstyle=\color{magenta}\bfseries, 
+    commentstyle=\color{gray},     
+    stringstyle=\color{green},                  
+    tabsize=4,                     
+    showspaces=false,              
+    showstringspaces=false,        
+    breaklines=true,               
+    breakatwhitespace=true,        
+}
+
+\question{1}{Mathematical Proof}
+
+Mathematically, what is the running time of the code presented in the puzzle at the beginning of class? We can talk about both worst-case running time and best-case running time. The worst-case running on input of size $n$ is the running time of the hardest input of that size —i.e., one that takes the longest to run. The best-case running time on input of size $n$
+ is the running time of the easiest input of that size. Your task here is to determine the best-case running time, as well as the worst-case running time, as a function of the input size (the length of the input sequence)?
+
+The "puzzle" in question is the following Python method:
+\begin{lstlisting}
+from copy import copy
+def foobar(numbers: List[int]) -> List[int]:
+    # make a copy of numbers
+    numbers = copy(list(numbers))
+    for j in range(1, len(numbers)):
+        key = numbers[j]
+        i = j-1
+        while i >= 0 and numbers[i] > key:
+            numbers[i+1] = numbers[i]
+            i = i-1
+        numbers[i+1] = key
+    return numbers
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+\end{document}

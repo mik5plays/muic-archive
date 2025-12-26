@@ -1,0 +1,99 @@
+% You should title the file with a .tex extension (hw1.tex, for example)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{6}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+\begin{document}
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+21 November 2024 \\
+\end{center}
+
+\question{1}{Task 4: Quick Sort Recurrence}
+
+\part{i}
+This is the recurrence relation for quicksort:
+\begin{align}
+f(n) = n + 1 + \frac{2}{n}(f(n-1) + f(n-2) + ... + f(1)) \qquad where f(0) = 0
+\end{align}
+After a few operations, which I won't copy out exactly,
+\begin{align}
+n \cdot f (n) = 2n +(n+1)f (n-1)
+\end{align}
+I understand this derivation!
+
+\part{ii}
+
+Suppose $g(n) = \frac{f(n)}{n+1}$, writing out what we have (per hint)
+\begin{align}
+\frac{n \cdot f(n)}{n(n+1)} \\
+= \frac{2n +(n+1)f (n-1)}{n(n+1)} \\
+= \frac{2n}{n(n+1)} + \frac{(n+1)f(n-1)}{n(n+1)} \\
+= \frac{2}{n+1} + \frac{f(n-1)}{n}
+\end{align}
+
+Notice how RHS is essentially $g(n-1)$. This means that:
+\begin{align}
+g(n) = \frac{2}{n+1} + g(n-1) \\
+= g(n-1) + \frac{2}{n+1}
+\end{align}
+ 
+\part{iii}
+
+Now, solving for the recurrence - assuming $g(0) = 0$
+\begin{align} 
+g(n) = g(n-1) + \frac{2}{n+1} \\
+= g(n-2) + \frac{2}{n} + \frac{2}{n+1} \\
+= g(n-3) + \frac{2}{n-1} +\frac{2}{n} + \frac{2}{n+1} \\
+... \\
+= \frac{2}{1+1} + \frac{2}{2+1} + \frac{2}{3+1} + ... + \frac{2}{n-1} +\frac{2}{n} + \frac{2}{n+1} \\
+= 2 \cdot \left[ \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + ... + \frac{1}{n-1} + \frac{1}{n} + \frac{1}{n+1}\right] \\
+= 2 \cdot ( H_{n+1} - 1 )
+\end{align}
+
+\part{iv}
+
+Now, to find the closed form:
+\begin{align}
+g(n) = 2 \cdot (H_{n+1} - 1) = \frac{f(n)}{n+1} \\
+\therefore f(n) = (n+1) \cdot 2 \cdot (H_{n+1} - 1) \\
+ = (2n+2) (H_{n+1} - 1)
+\end{align}
+Using the fact that $H_n \le 1+ln(n)$ - this means that $H_{n+1} - 1 \le ln(n+1)$. If we subsitute this approximation into the closed-form, we get something like
+\begin{align}
+(2n+2) \cdot ln(n+1) \\  
+= 2n \cdot ln(n+1) + 2 \cdot ln(n+1) \\
+\approx n \cdot ln(n) + ln(n)
+\end{align}
+If we just consider the dominant terms (so we ignore the constants), we can conclude that $f(n) = O(n \cdot ln(n))$
+\end{document}
+

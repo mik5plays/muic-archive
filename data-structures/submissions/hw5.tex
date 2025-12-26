@@ -1,0 +1,451 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\question}[2] {\vspace{.25in} \hrule\vspace{0.5em}
+\noindent{\bf #1: #2} \vspace{0.5em}
+\hrule \vspace{.10in}}
+\renewcommand{\part}[1] {\vspace{.10in} {\bf (#1)}}
+
+\newcommand{\myname}{Theeradon Sarawek}
+\newcommand{\myemail}{theeradon.sar@student.mahidol.edu}
+\newcommand{\myhwnum}{5}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+ 
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{\textbf{HW\myhwnum}}}      % Note the different brackets!
+\rhead{\fancyplain{}{\myname\\ \myemail}}
+\chead{\fancyplain{}{ICCS208}}
+
+\begin{document}
+
+
+\medskip                        % Skip a "medium" amount of space
+                                % (latex determines what medium is)
+                                % Also try: \bigskip, \littleskip
+
+\thispagestyle{plain}
+\begin{center}                  % Center the following lines
+{\Large ICCS208: Assignment \myhwnum} \\
+\myname \\
+\myemail \\
+11 November 2024 \\
+\end{center}
+
+\lstset{
+    language=Java,                 
+    basicstyle=\texttt\footnotesize, 
+    keywordstyle=\color{magenta}\bfseries, 
+    commentstyle=\color{gray},     
+    stringstyle=\color{green},                  
+    tabsize=4,                     
+    showspaces=false,              
+    showstringspaces=false,        
+    breaklines=true,               
+    breakatwhitespace=true,        
+}
+
+\question{1}{Task 1: Hello, Definition}
+\part{I}{ Subtask I}
+
+To prove that $f(n) = n$ is $O(n logn)$, we consider the definition of Big O, which states that $\lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty$
+\begin{align}
+\lim_{n \to \infty} \frac{f(n)}{g(n)} = \lim_{n \to \infty} \frac{n}{nlogn} 
+\\ = \frac{1}{logn}
+\\ n \to \infty, log(n) \to \infty
+\\ \therefore = \frac{1}{\infty} = 0
+\end{align}
+Which satisfies the Big O definition.
+
+\part{II}{ Subtask II}
+
+ If $d(n)$ is $O(f (n))$ and $e(n)$ is $O(g (n))$, then the product $ d(n) \cdot e(n)$ is $O(f (n)g (n))$.
+
+To prove this, we can take limits again. Consider that by definition,
+\begin{align}
+\lim_{n \to \infty} \frac{d(n)}{f(n)} \to C_1 \quad \lim_{n \to \infty} \frac{e(n)}{g(n)} \to C_2 \qquad C_1, C_2 \in \mathbb{R}^+
+\end{align}
+Therefore,
+\begin{align}
+\lim_{n \to \infty} \frac{d(n) \cdot e(n)}{f(n) \cdot g(n)} = \left[\lim_{n \to \infty} \frac{d(n)}{f(n)}\right] \cdot \left[\lim_{n \to \infty} \frac{e(n)}{g(n)}\right]
+\\ = C_1 \cdot C_2
+\end{align}
+Since we know both $C_1$ and $C_2$ are finite constants, we can make a new variable $C_3 = C_1 C_2$ which fits the definition of Big O.
+
+\part{III}{ Subtask III}
+
+Considering the following code (with comments),
+\begin{lstlisting}
+void fnA(int S[]) {
+	int n = S.length; // Theta(1)
+	for (int i=0;i<n;i++) { // loops n times
+		fnE(i, S[i]); // runtime -> 1000(i)
+	}
+}
+\end{lstlisting}
+We can ignore the part with constant runtime $\Theta(1)$ and consider the summation that is based on our for loop:
+\begin{align}
+\sum_{i=0}^{n-1} 1000i = 1000 \cdot \sum_{i=0}^{n-1}i
+\\ = 1000 \cdot \frac{n(n-1)}{2}
+\end{align}
+Therefore, the total runtime is $\Theta(1000 \cdot \frac{n^2-n}{2})$. However, consider that the dominant factor $n^2$ will dominate for large values of $n$, therefore we can simplify this to $\Theta(n^2)$
+
+\part{IV}{ Subtask IV}
+
+Show that $h(n) = 16n^2 + 11n^4 + 0.1n^5$ is not $O(n^4)$
+
+Considering how Big O Notation works, it would make sense to only consider the dominant factor $0.1n^5$ which leaves us with a time complexity of $O(n^5)$
+
+To cement that $h(n) \ne c \cdot n^4, c \in \mathbb{R}^+$ (per definition), we can take limits.
+\begin{align}
+\lim_{n \to \infty} \frac{16n^2 + 11n^4 + 0.1n^5}{n^4}
+\\ = \lim_{n \to \infty} \frac{16n^2}{n^4} + \lim_{n \to \infty} \frac{11n^4}{n^4} + \lim_{n \to \infty} \frac{0.1n^5}{n^4} 
+\\ = \lim_{n \to \infty} \frac{1}{16n^2} +  \lim_{n \to \infty} 11 +  \lim_{n \to \infty} 0.1
+\\ = 0 + 11 + \infty
+\\ \to \infty
+\end{align}
+Since the limit is infinity, it does not meet the definition of Big O, which states that the limit must be some finite constant.
+
+\question{2}{Task 2: Poisoned Wine}
+To implement a system to find the one poisoned wine using O(logn) testers, we shall implement a system using the binary representation of the $i^{th}$ wine from 1 to n inclusive.
+
+To demonstrate, assume $n = 16$ such that we will need $\lceil log_2(n+1) \rceil = 5$ bits to represent up to 16 in binary form. We must strictly use $log_2(16) = 4$ testers meaning we can assign each tester to the first four bits counting from the right. So let's label them:
+\begin{align}
+\begin{tabular}{||c c c c c||} 
+ \hline
+ - & $T_4$ & $T_3$ & $T_2$ & $T_1$ \\
+0 & 0 & 0 & 0 & 0 \\
+ \hline
+\end{tabular}
+\end{align}
+Each tester $T_j$ will only taste wine $i$ (such that $1 \le i \le n$) if the binary representation of $i$ has a 1-bit in the $j^{th}$ column. To visualize this, say we have Wine 12, $W_{12}$, which can be visualized in binary form like so:
+\begin{align}
+\begin{tabular}{||c c c c c||} 
+ \hline
+ - & $T_4$ & $T_3$ & $T_2$ & $T_1$ \\
+0 & 1 & 1 & 0 & 0 \\
+ \hline
+\end{tabular}
+\end{align}
+This means that $T_4$ and $T_3$ will try $W_{12}$.
+The key to finding out which wine is poisoned is to let all $log_2{n}$ testers try all $n$ wines and wait 31 days. We observe the testers to see which ones have been poisoned.
+\begin{itemize}
+	\item Observe which testers have been poisoned and take count of their number $j$. We can then form a binary number from the poisoned tester(s) and place a 1 at their slot, leaving the slots of non-poisoned testers as 0.
+	\item The number that is formed will be the bottle $W_i$ that is poisoned.
+	\item[!] Notice how there isn't a $T_5$. The leftmost bit can only signify the largest possible representable number, which in this case would be $W_{16}$. If none of the testers are poisoned, then we can assume that the poisoned bottle is the only one that they haven't tried, which will be $W_n$.
+\end{itemize}
+To visualize this, suppose we notice that after 31 days, Tester 4, 3, and 1 are poisoned. Putting this into the binary table would leave us with:
+\begin{align}
+\begin{tabular}{||c c c c c||} 
+ \hline
+ - & $T_4$ & $T_3$ & $T_2$ & $T_1$ \\
+0 & 1 & 1 & 0 & 1 \\
+ \hline
+\end{tabular}
+\end{align}
+The number that is formed would then be $8+4+1 = 13$, therefore we can conclude that $W_{13}$ is the poisoned bottle (unlucky).
+
+\question{3}{Task 3: How Long Does This Take?}
+\begin{lstlisting}
+void programA(int n) {
+	long prod = 1; // Theta(1)
+	for (int c=n;c>0;c=c/2) // log2(n) * 1
+		prod = prod * c; // Theta(1)
+}
+\end{lstlisting}
+From observation alone, I'll deduce that this likely has a logarithmic runtime due to the nature of the for loop, which reduces $c$ by 2 until $c <= 0$, which considering how Java uses floor division, will terminate if it has to divide 1 by 2. Therefore, the number of times the function will loop would be $\lfloor log_2(n) \rfloor + 1$ (includes when Java decides to multiply by one), which simplifies to $log_2(n)$ in the grand scheme of things. We also consider the multiplication operation inside the loop will take constant time $\Theta(1)$. 
+
+Therefore, the total runtime will be $\Theta(1) + log_2(n) \cdot \Theta(1)$ which simplifies to $\Theta(logn)$
+
+\begin{lstlisting}
+void programB(int n) {
+	long prod = 1;
+	for (int c=1;c<n;c=c*3)
+		prod = prod * c;
+}
+\end{lstlisting}
+Similar to $programA$, this should be logarithmic. The amount of times the for loop initiates would be $log_3(n)$ times, considering it loops $x$ times based on how many times 3 can be multiplied to get a value that is at least $n$. 
+
+The code is identical to $programA$ except for how the for loop iterates, therefore we can reuse what we found previously.
+
+Therefore, the total runtime will be $\Theta(1) + log_3(n) \cdot \Theta(1)$ which is just $\Theta(logn)$
+
+\question{4}{Task 4: Halving Sum}
+\part{I}{ Part I}
+
+To help me understand it better, here's my Python writeup I used based on the instructions inside the while loop. This is based on the idea that $len(x)$ must be some exponent of $2$ so there would be no need to compensate for dividing odd numbers by 2.
+\begin{lstlisting}
+def hsum(x: List[int]):
+    while len(x) > 1:
+        y = [0] * int(len(x) / 2) // step 1
+        for i in range(int(len(x)/2)): // step 2
+            y[i] = x[2*i] + x[(2*i) + 1] // step 2 
+        x = y // step 3
+    return x[0]
+\end{lstlisting}
+\begin{itemize}
+	\item Step 1 will take $k_1 \cdot \frac{z}{2}$ since we allocate an array of size $\frac{z}{2}$
+	\item Step 2 will take $7k_2 \cdot \frac{z}{2}$ as we will loop $\frac{z}{2}$ times doing seven operations that cost $k_2$ each:
+	\begin{itemize}
+		\item Multiplying $2 \cdot i$
+		\item Retrieving element $2 \cdot i$ in $X$
+		\item Multiplying $2 \cdot i$
+		\item Adding 1
+		\item Retrieving element $2 \cdot i + 1$ in $X$
+		\item Adding those two elements together
+		\item Writing to the other array $Y$
+	\end{itemize}
+	\item Step 3 takes $\frac{zk_2}{2}$ due to it being an array writing operation that we do $\frac{z}{2}$ times.
+\end{itemize}
+We can therefore write this as $ k_1 \cdot \frac{z}{2} + 7k_2 \cdot \frac{z}{2} + k_2 \cdot \frac{z}{2}$ or simply $ ( \frac{k_1}{2} + 4k_2) \cdot z$ if we want to adhere as closely as we can to the format given in the assignment.
+
+\part{II}{ Part II}
+
+We know that $z$ is variable starting from the original $n = X.length$ that is divided by 2 until it yields 1. Therefore, our summation for runtime might look something along the lines of:
+\begin{align}
+\left[(\frac{k_1}{2} + 4k_2) \cdot \frac{n}{2^1}\right] + \left[(\frac{k_1}{2} + 4k_2) \cdot \frac{n}{2^2}\right] + ... + \left[(\frac{k_1}{2} + 4k_2) \cdot \frac{n}{2^{log_2n}}\right]
+\end{align}
+Where $\frac{n}{2^{log_2n}}$ should just be 1. This means we can write a summation formula:
+\begin{align}
+\sum_{i=1}^{log_2n} \left[(\frac{k_1}{2} + 4k_2) \cdot \frac{n}{2^i}\right]
+\\ (\frac{k_1}{2} + 4k_2) \cdot \sum_{i=1}^{log_2n} \frac{n}{2^i}
+\end{align}
+Gonna dissect the first summation separately since it looks like it will take a while. Assume $C = (\frac{k_1}{2} + 4k_2)$ for readability since it's a constant.
+\begin{align}
+C \cdot n \cdot \sum_{i=1}^{log_2n} \frac{1}{2^i} \\
+= C \cdot n \cdot \left[ \frac{1}{2} + \frac{1}{2^2} + ... + \frac{1}{2^{log_2n}} \right]
+\end{align}
+
+Notice that this is a geometric sequence with $a = \frac{1}{2}$ and $r = 2^{-1}$ so we can use the geometric sum formula + consider that $2^{log_2n} = n$
+\begin{align}
+S = \frac{1}{2} \cdot \frac{1 - 2^{-log_2n}}{1 - 2^{-1}} \\
+= \frac{1}{2} \cdot 2 \cdot 1 - \frac{1}{n} \\
+= 1 - \frac{1}{n}
+\end{align}
+Therefore, this part is:
+\begin{align}
+C \cdot n \cdot ( 1 - \frac{1}{n} ) \\
+= (\frac{k_1}{2} + 4k_2) \cdot n \cdot ( 1 - \frac{1}{n} )
+\end{align}
+This means the total runtime as a summation would be:
+\begin{align}
+hsum_{RT} =(\frac{k_1}{2} + 4k_2) \cdot (n - 1)
+\end{align}
+Which, considering only the dominant factor $n$ in the sea of constants the final sum leaves us, leaves us with $\Theta(n)$ such that $n$ is based on the length of input array $x$.
+Note that this is the runtime of my Python code, which I tried to base as close to the prompt as possible, so if the code is wrong then... :(
+
+\question{5}{Task 5: More Running Time Analysis}
+
+\part{I}{ Part I}
+\begin{lstlisting}
+static void method1(int[] array) {
+	int n = array.length; // O(1) constant
+	for (int index=0;index<n-1;index++) { // n - 1 iterations 
+		int marker = helperMethod1(array, index, n - 1); // O(n - index)
+		swap(array, marker, index); // O(1) 
+	}
+}
+static void swap(int[] array, int i, int j) { // O(1) constant
+	int temp=array[i];
+	array[i]=array[j];
+	array[j]=temp;
+}
+
+static int helperMethod1(int[] array, int first, int last) { // O(z) such that z = |last-first| so basically O(n) anyway
+	int max = array[first]; // O(1)
+	int indexOfMax = first; // O(1)
+	for (int i=last;i>first;i--) { // (last-first) * O(1)  = O(z)
+		if (array[i] > max) { // O(1)
+			max = array[i]; // O(1)
+			indexOfMax = i; // O(1)
+		}
+	}
+	return indexOfMax;
+}
+\end{lstlisting}
+The runtime of $method1$ depends on $helperMethod1$ since $swap$ takes constant runtime. 
+
+Each iteration will call helperMethod1 which scans through an array of size $n - index$ each time such that index goes from 0 to $n-1$. This means the total runtime should look something like
+\begin{align}
+Runtime = O(n) + O(n-1) + O(n-2) + ... + O(1) = \frac{n(n-1)}{2} = O(n^2)
+\end{align}
+Considering that the for loop will loop $n-1$ times, calling $helperMethod1$ to scan through all of it (without some form of loop break) regardless of the order of size n inputs, the best and worst cases should both be the same at $O(n^2)$
+
+\part{II}{ Part II}
+\begin{lstlisting}
+static boolean method2(int[] array, int key) {
+	int n = array.length;
+	for (int index=0;index<n;index++) {
+		if (array[index] == key) return true;
+			}
+	return false;
+}
+\end{lstlisting}
+$method2$ is not slick in hiding the fact that it is a linear search. So,
+\begin{itemize}
+	\item The best case scenario for input size $n$ is that the key we want to find just so happens to be in the first index. This means the best-case runtime will be $O(1)$
+	\item The worst case scenario for input size $n$ is that we need to traverse the entire array. This means worst-case runtime will be $O(n)$.
+\end{itemize}
+
+\part{III}{ Part III}
+\begin{lstlisting}
+static double method3(int[] array) {
+	int n = array.length; // O(1)
+	double sum = 0; // O(1)
+	for (int pass=100; pass >= 4; pass--) { // 97 times -> Assume O(1) since it's constant
+		for (int index=0;index < 2*n;index++) { // O(2n) -> Assume O(n)
+			for (int count=4*n;count>0;count/=2) // O(log(n))
+				sum += 1.0*array[index/2]/count; // O(1)
+		}
+	}
+	return sum;
+}
+\end{lstlisting}
+From the comments, we see total runtime should be $O(1) \cdot O(n) \cdot O(logn)$ which is $O(nlogn)$.
+\begin{itemize}
+	\item The best and worst case runtime should be the same since the for loops will loop regardless of order.
+\end{itemize}
+
+\question{6}{Task 6: Recursive Code}
+I wish I saw this before I wrote my code in Task 4 :(
+\begin{lstlisting}
+int halvingSum(int[] xs) {
+	if (xs.length == 1) return xs[0];
+	else {
+		int[] ys = new int[xs.length/2];
+		for (int i=0;i<ys.length;i++) // O(n/2) --> O(n)
+			ys[i] = xs[2*i]+xs[2*i+1];
+		return halvingSum(ys); // recursive call where len(ys) = len(xs)/2 therefore T(n/2)
+	}
+}
+\end{lstlisting}
+\begin{enumerate}
+	\item Input size depends on the length of array xs.
+	\item T(n) = T(n/2) + O(n),T(1) = 1
+	\item O(n)
+\end{enumerate}
+\begin{lstlisting}
+int anotherSum(int[] xs) {
+	if (xs.length == 1) return xs[0];
+	else {
+		int[] ys = Arrays.copyOfRange(xs, 1, xs.length); // O(n - 1) --> O(n) 
+		return xs[0]+anotherSum(ys); // T(n - 1)
+	}
+}
+\end{lstlisting}
+\begin{enumerate}
+	\item Input size depends on the length of array xs.
+	\item T(n) = T(n-1) + O(n), T(1) = 1
+	\item O($n^2$)
+\end{enumerate}
+\begin{lstlisting}
+int[] prefixSum(int[] xs) {
+	if (xs.length == 1) return xs;
+	else {
+		int n = xs.length;
+		int[] left = Arrays.copyOfRange(xs, 0, n/2); // O(n/2)
+		left = prefixSum(left); T(n/2)
+		int[] right = Arrays.copyOfRange(xs, n/2, n); // O(n/2)
+		right = prefixSum(right); T(n/2)
+		int[] ps = new int[xs.length];
+		int halfSum = left[left.length-1];
+		for (int i=0;i<n/2;i++) { ps[i] = left[i]; } // O(n/2)
+		for (int i=n/2;i<n;i++) { ps[i] = right[i - n/2] + halfSum; } // O(n/2)
+		return ps;
+	}
+}
+// In the grand scheme of things all the O(n/2) turns into O(n)
+\end{lstlisting}
+\begin{enumerate}
+	\item Input size depends on the length of array xs.
+	\item T(n) = 2T(n/2) + O(n)
+	\item O(nlogn)
+\end{enumerate}
+
+\question{7}{Task 7: Counting Dashes}
+\begin{lstlisting}
+void printRuler(int n) {
+	if (n > 0) {
+		printRuler(n-1);
+		// print n dashes
+		for (int i=0;i<n;i++) System.out.print('-');
+		System.out.println();
+		// --------------
+		printRuler(n-1);
+	}
+}
+\end{lstlisting}
+Consider the following, where g(n) is printRuler and f(n) is the Tower of Hanoi sequence.
+\begin{align}
+g(n) = 2g(n-1) + n, g(0) = 0 \\
+f(n) = 2f(n-1) + 1, f(0) = 0 = 2^n  - 1
+\end{align}
+The relationship between them can be $guessed$ as, where we will call this Equation 1:
+\begin{align}
+g(n) = a\cdot f(n) + b \cdot n + c
+\end{align}
+To prove that this is true,
+
+\part{I}
+Plugging $n=0$ into Equation 1 would mean:
+\begin{align}
+g(0) = a \cdot f(0) + b \cdot n + c \\
+0 = 0 + 0 + c \\
+\therefore c = 0
+\end{align}
+
+\part{II}
+Plugging $g(n) = a\cdot f(n) + b \cdot n$ into the recurrence $g(n)$ would lead to:
+\begin{align}
+g(n) = 2 \cdot \left[a\cdot f(n-1) + b \cdot (n-1)\right] + n \\
+= 2 \cdot a \cdot f(n-1) + 2 \cdot b \cdot (n-1) + n
+\end{align}
+We can express $f(n-1)$ as $\frac{f(n) - 1}{2}$ so,
+\begin{align}
+g(n) = 2 \cdot a \cdot \frac{f(n) - 1}{2} + 2 \cdot b \cdot (n-1) + n \\
+= a \cdot f(n) - a + 2bn - 2b + n \\
+= a \cdot f(n) + 2bn + n - a - 2b \\
+ = a \cdot f(n) + (2b+1) \cdot n - (a + 2b)
+\end{align}
+Which is in the same formula as the guess. Now, comparing with the guess, 
+\begin{itemize}
+	\item a = a
+	\item $2b + 1 = b$, therefore $1 = -b$ so $b = -1$
+	\item $c = a + 2b$, we established $c = 0$ so $a + 2b = 0$ therefore $a = -2b$
+	\item Which therefore means $a = (-1)(-2) = 2$
+\end{itemize}
+Therefore, we say $g(n) = 2f(n) - n$
+
+\part{III}
+
+The closed form formula should look like g(n) = $2(2^n - 1) - n = 2^{n+1} - (n+2)$
+
+\part{IV}
+
+We want to prove that $g(n) = g'(n)$ (note that the aprostophe does not mean derivative) where:
+\begin{align}
+g(n) = 2g(n-1) + n \\
+g'(n) = 2^{n+1} - (n+2)
+\end{align}
+Let's assume those are the inductive hypotheses.
+
+Base case: g(0) = 0, $g'(0) = 2^{0+1} - (2+0) = 0$
+
+Inductive step:
+\begin{align}
+g(n+1) = 2(g(n)) + n + 1\\ 
+IH \to 2 \left[2^{n+1} - (n+2)\right] + n + 1
+\\ = 2^{n+2} -2n-4+n+1
+\\ = 2^{n+2} - n - 3
+\\ = 2^{[n+1] + 1} - ([n+1]+2)
+\end{align}
+Therefore, per induction, we know that $g(n) = g'(n)$ meaning that our closed form formula actually works.
+\end{document}

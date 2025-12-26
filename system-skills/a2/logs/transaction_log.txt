@@ -1,0 +1,5 @@
+INC|Salary|100.00
+INC|Allowance|1500.50
+INC|Groceries|-45.00
+INC|Integer|222.00
+INC|Won A Bet|100.00
