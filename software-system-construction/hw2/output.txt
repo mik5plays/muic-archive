@@ -1,0 +1,252 @@
+Note: Sample output for final step of assignment
+
+Simulation Population Counts [Step 1]
+FOX                      136
+RABBIT                   812
+TIGER                    102
+HUNTER                    10
+Simulation Population Counts [Step 2]
+FOX                      133
+RABBIT                   896
+TIGER                    103
+HUNTER                    10
+Simulation Population Counts [Step 3]
+FOX                      124
+RABBIT                   950
+TIGER                    106
+HUNTER                    10
+Simulation Population Counts [Step 4]
+FOX                      115
+RABBIT                  1001
+TIGER                    110
+HUNTER                    10
+Simulation Population Counts [Step 5]
+FOX                      110
+RABBIT                  1040
+TIGER                    110
+HUNTER                    10
+Simulation Population Counts [Step 6]
+FOX                      106
+RABBIT                  1121
+TIGER                    115
+HUNTER                    10
+Simulation Population Counts [Step 7]
+FOX                      105
+RABBIT                  1203
+TIGER                    117
+HUNTER                    10
+Simulation Population Counts [Step 8]
+FOX                      102
+RABBIT                  1285
+TIGER                    125
+HUNTER                    10
+Simulation Population Counts [Step 9]
+FOX                      100
+RABBIT                  1367
+TIGER                    135
+HUNTER                    10
+Simulation Population Counts [Step 10]
+FOX                       98
+RABBIT                  1523
+TIGER                    133
+HUNTER                    10
+Simulation Population Counts [Step 11]
+FOX                       94
+RABBIT                  1666
+TIGER                    134
+HUNTER                    10
+Simulation Population Counts [Step 12]
+FOX                       91
+RABBIT                  1782
+TIGER                    133
+HUNTER                    10
+Simulation Population Counts [Step 13]
+FOX                       87
+RABBIT                  1897
+TIGER                    133
+HUNTER                    10
+Simulation Population Counts [Step 14]
+FOX                       78
+RABBIT                  2074
+TIGER                    132
+HUNTER                    10
+Simulation Population Counts [Step 15]
+FOX                       74
+RABBIT                  2217
+TIGER                    134
+HUNTER                    10
+Simulation Population Counts [Step 16]
+FOX                       71
+RABBIT                  2374
+TIGER                    139
+HUNTER                    10
+Simulation Population Counts [Step 17]
+FOX                       80
+RABBIT                  2584
+TIGER                    139
+HUNTER                    10
+Simulation Population Counts [Step 18]
+FOX                       75
+RABBIT                  2757
+TIGER                    143
+HUNTER                    10
+Simulation Population Counts [Step 19]
+FOX                       80
+RABBIT                  2951
+TIGER                    145
+HUNTER                    10
+Simulation Population Counts [Step 20]
+FOX                       73
+RABBIT                  3130
+TIGER                    147
+HUNTER                    10
+Simulation Population Counts [Step 21]
+FOX                       77
+RABBIT                  3310
+TIGER                    155
+HUNTER                    10
+Simulation Population Counts [Step 22]
+FOX                       74
+RABBIT                  3466
+TIGER                    161
+HUNTER                    10
+Simulation Population Counts [Step 23]
+FOX                       75
+RABBIT                  3675
+TIGER                    161
+HUNTER                    10
+Simulation Population Counts [Step 24]
+FOX                       74
+RABBIT                  3818
+TIGER                    161
+HUNTER                    10
+Simulation Population Counts [Step 25]
+FOX                       71
+RABBIT                  4019
+TIGER                    172
+HUNTER                    10
+Simulation Population Counts [Step 26]
+FOX                       72
+RABBIT                  4178
+TIGER                    186
+HUNTER                    10
+Simulation Population Counts [Step 27]
+FOX                       76
+RABBIT                  4320
+TIGER                    188
+HUNTER                    10
+Simulation Population Counts [Step 28]
+FOX                       77
+RABBIT                  4457
+TIGER                    199
+HUNTER                    10
+Simulation Population Counts [Step 29]
+FOX                       80
+RABBIT                  4565
+TIGER                    202
+HUNTER                    10
+Simulation Population Counts [Step 30]
+FOX                       80
+RABBIT                  4689
+TIGER                    209
+HUNTER                    10
+Simulation Population Counts [Step 31]
+FOX                       84
+RABBIT                  4803
+TIGER                    213
+HUNTER                    10
+Simulation Population Counts [Step 32]
+FOX                       87
+RABBIT                  4886
+TIGER                    228
+HUNTER                    10
+Simulation Population Counts [Step 33]
+FOX                       86
+RABBIT                  4957
+TIGER                    231
+HUNTER                    10
+Simulation Population Counts [Step 34]
+FOX                       86
+RABBIT                  5042
+TIGER                    237
+HUNTER                    10
+Simulation Population Counts [Step 35]
+FOX                       87
+RABBIT                  5106
+TIGER                    245
+HUNTER                    10
+Simulation Population Counts [Step 36]
+FOX                       84
+RABBIT                  5192
+TIGER                    255
+HUNTER                    10
+Simulation Population Counts [Step 37]
+FOX                       85
+RABBIT                  5214
+TIGER                    268
+HUNTER                    10
+Simulation Population Counts [Step 38]
+FOX                       89
+RABBIT                  5301
+TIGER                    271
+HUNTER                    10
+Simulation Population Counts [Step 39]
+FOX                       91
+RABBIT                  5300
+TIGER                    276
+HUNTER                    10
+Simulation Population Counts [Step 40]
+FOX                       95
+RABBIT                  5329
+TIGER                    287
+HUNTER                    10
+Simulation Population Counts [Step 41]
+FOX                       98
+RABBIT                  5354
+TIGER                    305
+HUNTER                    10
+Simulation Population Counts [Step 42]
+FOX                       99
+RABBIT                  5334
+TIGER                    317
+HUNTER                    10
+Simulation Population Counts [Step 43]
+FOX                      100
+RABBIT                  5231
+TIGER                    337
+HUNTER                    10
+Simulation Population Counts [Step 44]
+FOX                      102
+RABBIT                  5173
+TIGER                    356
+HUNTER                    10
+Simulation Population Counts [Step 45]
+FOX                      102
+RABBIT                  5070
+TIGER                    380
+HUNTER                    10
+Simulation Population Counts [Step 46]
+FOX                      104
+RABBIT                  5030
+TIGER                    385
+HUNTER                    10
+Simulation Population Counts [Step 47]
+FOX                      116
+RABBIT                  4975
+TIGER                    407
+HUNTER                    10
+Simulation Population Counts [Step 48]
+FOX                      114
+RABBIT                  4857
+TIGER                    429
+HUNTER                    10
+Simulation Population Counts [Step 49]
+FOX                      111
+RABBIT                  4750
+TIGER                    437
+HUNTER                    10
+Simulation Population Counts [Step 50]
+FOX                      114
+RABBIT                  4613
+TIGER                    455
+HUNTER                    10
