@@ -1,0 +1,17 @@
+[debug] Packaging E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\crunch_3-0.0.1.jar ...
+[debug] Input file mappings:
+[debug] 	DataCrunch$$anon$1.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch$$anon$1.class
+[debug] 	DataCrunch$.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch$.class
+[debug] 	DataCrunch$DataProvider.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch$DataProvider.class
+[debug] 	DataCrunch$FailedSample$.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch$FailedSample$.class
+[debug] 	DataCrunch$LoremIpsum$.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch$LoremIpsum$.class
+[debug] 	DataCrunch.class
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch.class
+[debug] 	DataCrunch.tasty
+[debug] 	  E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes\DataCrunch.tasty
+[debug] Done packaging.

@@ -1,0 +1,9 @@
+[warn] -- [E029] Pattern Match Exhaustivity Warning: E:\MUIC\Funpar\basic-solver\src\main\scala\solver\Process.scala:47:4 
+[warn] 47 |    e match {
+[warn]    |    ^
+[warn]    |    match may not be exhaustive.
+[warn]    |
+[warn]    |    It would fail on pattern case: solver.Var(_), solver.Power(_, _)
+[warn]    |
+[warn]    | longer explanation available when compiling with `-explain`
+[warn] one warning found

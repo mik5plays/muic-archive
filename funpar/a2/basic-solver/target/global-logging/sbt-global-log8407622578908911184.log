@@ -1,0 +1,11 @@
+[debug] > Exec(val e: Expression = solver.Parser("2^x + x + 4*3"), None, None)
+[error] Expected ID character
+[error] Not a valid command: val (similar: eval, alias, apply)
+[error] Expected project ID
+[error] Expected configuration
+[error] Expected ':'
+[error] Expected key
+[error] Not a valid key: val
+[error] val e: Expression = solver.Parser("2^x + x + 4*3")
+[error]    ^
+[debug] > Exec(idea-shell, None, None)

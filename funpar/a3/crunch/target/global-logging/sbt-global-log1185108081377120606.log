@@ -1,0 +1,9 @@
+[debug] > Exec(compile, None, None)
+[debug] Evaluating tasks: Compile / compile
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to E:\MUIC\Funpar\a3\crunch\target\scala-3.6.3\classes ...
+[warn] there was 1 deprecation warning; re-run with -deprecation for details
+[warn] one warning found
+[info] done compiling
+[success] Total time: 1 s, completed 3 Nov 2025, 23:09:05
+[debug] > Exec(idea-shell, None, None)

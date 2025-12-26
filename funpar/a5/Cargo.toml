@@ -1,0 +1,15 @@
+[package]
+name = "a5"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rayon = "1.11"
+chashmap = "2.2"
+dashmap = { version = "6.1", features = ["rayon"] } 
+num-bigint = "0.4"
+bitvec = "1"
+num-traits = "0.2"
+bit-set = "0.8"

@@ -1,0 +1,7 @@
+[debug] > Exec(compile, None, None)
+[debug] Evaluating tasks: Compile / compile
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 6 Scala sources to E:\MUIC\Funpar\basic-solver\target\scala-3.7.3\classes ...
+[info] done compiling
+[success] Total time: 8 s, completed 21 Oct 2025, 19:37:09
+[debug] > Exec(idea-shell, None, None)

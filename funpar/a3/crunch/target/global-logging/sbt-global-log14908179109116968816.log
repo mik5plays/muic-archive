@@ -1,0 +1,93 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\Mik\AppData\Local\Temp\idea1.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\Mik\AppData\Local\Temp\idea1.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.10.1 (Oracle Corporation Java 21.0.3)
+[debug] Load.defaultLoad until apply took 352.9863ms
+[debug]           Load.loadUnit: plugins took 144.6101ms
+[debug]           Load.loadUnit: defsScala took 0.3442ms
+[debug] [Loading] Scanning directory E:\MUIC\Funpar\a3\crunch\project
+[debug]             Load.loadUnit: mkEval took 9.6691ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in E:\MUIC\Funpar\a3\crunch\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 22.7028 ms
+[info] loading settings for project crunch-build from idea1.sbt ...
+[debug]               Load.resolveProject(crunch-build) took 91.365701ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id crunch-build, base: E:\MUIC\Funpar\a3\crunch\project, plugins: List(<none>))) took 139.179199ms
+[debug] [Loading] Done in E:\MUIC\Funpar\a3\crunch\project, returning: (crunch-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 613.175401ms
+[debug]           Load.loadUnit: cleanEvalClasses took 11.678901ms
+[debug]         Load.loadUnit(file:/E:/MUIC/Funpar/a3/crunch/project/, ...) took 777.731ms
+[debug]       Load.apply: load took 995.9942ms
+[debug]       Load.apply: resolveProjects took 10.1808ms
+[debug]       Load.apply: finalTransforms took 112.0084ms
+[debug]       Load.apply: config.delegates took 20.8268ms
+[debug]       Load.apply: Def.make(settings)... took 799.5678ms
+[debug]       Load.apply: structureIndex took 235.0379ms
+[debug]       Load.apply: mkStreams took 7.083001ms
+[info] loading project definition from E:\MUIC\Funpar\a3\crunch\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 3538.807501ms
+[debug]     Load.loadUnit: defsScala took 0.005899ms
+[debug] [Loading] Scanning directory E:\MUIC\Funpar\a3\crunch
+[debug]       Load.loadUnit: mkEval took 0.4405ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 4.6781 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 57.638ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: E:\MUIC\Funpar\a3\crunch, plugins: List(<none>))) took 64.0187ms
+[debug] [Loading] Done in E:\MUIC\Funpar\a3\crunch, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 123.8951ms
+[debug]     Load.loadUnit: cleanEvalClasses took 3.4178ms
+[debug]   Load.loadUnit(file:/E:/MUIC/Funpar/a3/crunch/, ...) took 3671.9279ms
+[debug] Load.apply: load took 3743.764301ms
+[debug] Load.apply: resolveProjects took 0.3818ms
+[debug] Load.apply: finalTransforms took 49.353299ms
+[debug] Load.apply: config.delegates took 0.4866ms
+[debug] Load.apply: Def.make(settings)... took 119.3751ms
+[debug] Load.apply: structureIndex took 43.718299ms
+[debug] Load.apply: mkStreams took 0.0042ms
+[info] set current project to crunch (in build file:/E:/MUIC/Funpar/a3/crunch/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(idea-shell, None, None)

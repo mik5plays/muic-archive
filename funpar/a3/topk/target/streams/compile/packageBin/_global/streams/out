@@ -1,0 +1,9 @@
+[debug] Packaging E:\MUIC\Funpar\a3\topk\target\scala-3.6.3\topk_3-0.0.1.jar ...
+[debug] Input file mappings:
+[debug] 	TopK$.class
+[debug] 	  E:\MUIC\Funpar\a3\topk\target\scala-3.6.3\classes\TopK$.class
+[debug] 	TopK.class
+[debug] 	  E:\MUIC\Funpar\a3\topk\target\scala-3.6.3\classes\TopK.class
+[debug] 	TopK.tasty
+[debug] 	  E:\MUIC\Funpar\a3\topk\target\scala-3.6.3\classes\TopK.tasty
+[debug] Done packaging.
